@@ -33,6 +33,13 @@ python scripts/run_server_bg.py
 
 注意：当前为**单进程内存房间**实现（MVP）。不要用多 worker 启动（例如 `--workers 4`），否则同一房间的用户可能分散在不同进程里看不到彼此消息。
 
+## 环境变量（可选）
+
+- `OPENAI_BASE_URL`：默认 Base URL（显示在网页输入框里）
+- `OPENAI_MODEL`：默认模型名（显示在网页输入框里）
+- `AI_NAME`：AI 昵称（默认 `AI`）
+- `AI_AUTO_REPLY`：是否自动回复（默认 `true`；只有用户填写 API Key 才会触发）
+
 ## Docker（可选）
 
 ```bash
@@ -40,6 +47,10 @@ cp .env.example .env
 docker compose up --build -d
 docker compose logs -f
 ```
+
+## 部署到 Render（GitHub 自动部署）
+
+部署说明见：`deploy/render.md`。
 
 ---
 
