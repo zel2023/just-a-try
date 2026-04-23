@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat AI Web</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="title">
+          <div class="logo">Chat AI</div>
+          <div class="subtitle">多人实时聊天（WebSocket）</div>
+        </div>
+        <div class="status">
+          <span id="connBadge" class="badge badge-off">Disconnected</span>
+          <span class="meta">Room: <span id="roomLabel">-</span></span>
+          <span class="meta">Online: <span id="onlineCount">0</span></span>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="panel">
+          <div class="panel-row">
+            <label class="label" for="usernameInput">昵称</label>
+            <input id="usernameInput" class="input" placeholder="例如：alice" maxlength="32" />
+          </div>
+          <div class="panel-row">
+            <label class="label" for="roomInput">房间</label>
+            <input id="roomInput" class="input" placeholder="例如：team" maxlength="32" />
+          </div>
+          <div class="panel-row">
+            <label class="label" for="apiKeyInput">API Key</label>
+            <input id="apiKeyInput" class="input" placeholder="sk-..." type="password" />
+          </div>
+          <div class="panel-row">
+            <label class="label" for="baseUrlInput">Base URL</label>
+            <input id="baseUrlInput" class="input" placeholder="https://api.xxx.com/v1" />
+          </div>
+          <div class="panel-row">
+            <label class="label" for="modelInput">模型</label>
+            <input id="modelInput" class="input" placeholder="gpt-4o-mini" />
+          </div>
+          <div class="panel-row">
+            <label class="label" for="rememberKeyCheck">记住</label>
+            <div class="checkline">
+              <input id="rememberKeyCheck" type="checkbox" />
+              <span class="checkline-text">在浏览器保存 API Key</span>
+            </div>
+          </div>
+          <div class="panel-row panel-actions">
+            <button id="connectBtn" class="btn btn-primary">Connect</button>
+            <button id="disconnectBtn" class="btn" disabled>Disconnect</button>
+          </div>
+          <div class="hint">
+            <div class="hint-title">提示</div>
+            <ul>
+              <li>AI 会使用你在上面填写的 <code>API Key</code> 与 <code>Base URL</code> 发起请求（服务端不保存你的 Key）。</li>
+              <li>配置 Key 后：AI 默认会对你发送的每条消息自动回复；也可用 <code>/ai ...</code> 或 <code>@ai ...</code> 强制触发一次（未配置 Key 会回声）。</li>
+            </ul>
+          </div>
+          <div class="online">
+            <div class="online-title">在线用户</div>
+            <div id="onlineList" class="online-list"></div>
+          </div>
+        </section>
+
+        <section class="chat">
+          <div id="messages" class="messages"></div>
+          <form id="composer" class="composer">
+            <input id="messageInput" class="input composer-input" placeholder="输入消息，回车发送…" autocomplete="off" />
+            <button id="sendBtn" class="btn btn-primary" type="submit" disabled>Send</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
