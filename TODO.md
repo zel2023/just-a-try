@@ -30,7 +30,7 @@
   - 结果：README 顶部增加 Render 部署入口与可选环境变量清单，并明确“单进程内存房间”限制。
 - [√] 5. 本地启动并验证（后台运行 + 日志落盘）
   - 结果：已创建 conda 环境 `codex-try`（Python 3.11），安装依赖，并后台启动服务（pid=884602）；日志：`logs/04-24/09-04_run_server.log`；健康检查：`curl http://localhost:8000/healthz` 返回 `{"status":"ok"}`；访问：`http://localhost:8000/`。
-- [ ] 6. Render 创建服务并完成首次验证
-  - 结果：
+- [√] 6. Render 创建服务并完成首次验证
+  - 结果：Render 地址 `https://just-a-try-8ecx.onrender.com` 可用；`/healthz` 返回 `{"status":"ok"}`；`wss://.../ws` 连接与广播正常（用 `/ai ...` 在无 Key 时回声验证通过）。
 - [ ] 7. 产物整理：把本 TODO 迁移到 `Done/deploy-github.md` 并删除 `TODO.md`
   - 结果：
