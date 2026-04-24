@@ -22,12 +22,13 @@
 ### Step: deploy-github
 - [√] 1. 让项目适配 PaaS（端口/环境变量/启动方式 + 网页端输入 key/base_url）
   - 结果：后端新增 WebSocket `config` 消息（用户在线提交 `API Key`/`Base URL`/model，服务端仅内存使用不落盘）；前端增加对应输入框；Dockerfile 支持 `$PORT`，`settings` 支持 `PORT` 回退，适配 Render。
-- [ ] 2. 初始化 git 仓库并生成推送指令（不写入任何密钥）
 - [√] 2. 初始化 git 仓库并生成推送指令（不写入任何密钥）
-  - 结果：已执行 `git init` 并提交到 `main` 分支（commit: `d7498e8`）。待你创建 GitHub 公共仓库后，添加 remote 并 push 即可。
+  - 结果：已执行 `git init` 并提交到 `main` 分支（commit: `d7498e8`、`20eb4f5`），并已 push 到 `git@github.com:zel2023/just-a-try.git`。
 - [√] 3. 增加平台部署说明（按你选的平台：Render）
   - 结果：已新增 `deploy/render.md`（GitHub → Render Web Service(Docker) → Auto Deploy），并补充注意事项（单实例、Base URL 校验等）。
 - [√] 4. 更新 `README.md`（一键部署 + 环境变量清单 + WebSocket 注意事项）
   - 结果：README 顶部增加 Render 部署入口与可选环境变量清单，并明确“单进程内存房间”限制。
-- [ ] 5. 产物整理：把本 TODO 迁移到 `Done/deploy-github.md` 并删除 `TODO.md`
+- [ ] 5. Render 创建服务并完成首次验证
+  - 结果：
+- [ ] 6. 产物整理：把本 TODO 迁移到 `Done/deploy-github.md` 并删除 `TODO.md`
   - 结果：
